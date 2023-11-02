@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="emtion reaction prediction from news.">
+  <meta name="keywords" content="emotion, news, misinformation, radicalization, sentiment, image, test, vision, language">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Socratis: Are Large Multimodal Models Emotionally Aware?</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://arijitray1993.github.io/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Socratis: Are large multimodal models emotionally aware?</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="">Katherine Deng</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://arijitray1993.github.io/">Arijit Ray</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="">Reuben Tan</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Saadia Gabriel</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Bryan Plummer</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Kate Saenko</a><sup>1,2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Boston University</span>,
+            <span class="author-block"><sup>2</sup>Meta AI (FAIR)</span>,
+            <span class="author-block"><sup>3</sup>MIT</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2308.16741"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- Code Link. -->
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://github.com/arijitray1993/socratis"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div>
+
+          </div>
+          <h3 class="title is-5 publication-title"><a href="https://iccv23-wecia.github.io/">ICCV Workshops 2023 - Workshop On Emotionally And Culturally Intelligent AI</a></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="hero-pic"> 
+      <div style="text-align: center">
+      <img src="static/images/teaser.png" width="60%" class="interpolation-image">
+      </div>
+      </div>
+      <h2 class="subtitle has-text-centered">
+        Existing emotion prediction benchmarks lack diversity of emotions for an image-caption pair.
+      </h2>
+      <h2 class="subtitle has-text-centered">
+        We release a Socratis benchmark which contains
+        18K diverse emotions and reasons for feeling them on 2K image-caption pairs.
+        Our current preliminary findings have shown that Humans prefer human-written 
+        emotional reactions over machine-generated by more than two times.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          Existing emotion prediction benchmarks contain coarse emotion labels
+          which do not consider the diversity of emotions that an image and text 
+          can elicit in humans due to various reasons. Learning diverse reactions 
+          to multimodal content is important as intelligent machines take a central 
+          role in generating and delivering content to society. To address this gap, 
+          we propose Socratis, a societal reactions benchmark, where each image-caption 
+          (IC) pair is annotated with multiple emotions and the reasons for feeling them.
+           Socratis contains 18K free-form reactions for 980 emotions on 2075 image-caption 
+           pairs from 5 widely-read news and image-caption (IC) datasets. We benchmark the 
+           capability of state-of-the-art multimodal large language models to generate the 
+           reasons for feeling an emotion given an IC pair. Based on a preliminary human study,
+            we observe that humans prefer human-written reasons over 2 times more often than 
+            machine-generated ones. This shows our task is harder than standard generation tasks 
+            because it starkly contrasts recent findings where humans cannot tell apart machine 
+            vs human-written news articles, for instance. We further see that current captioning 
+            metrics based on large vision-language models also fail to correlate with human 
+            preferences. We hope that these findings and our benchmark will inspire further 
+            research on training emotionally aware models.
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Approach</h2>
+        <div class="publication-video">
+          <img src="static/images/approach.png" width="100%" class="interpolation-image">
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+
+        <h3 class="title is-4">Qualitative examples from our Socratis dataset and a state-of-the-art multimodal model, BLIP-v2 generations</h3>
+          <div class="content has-text-centered">
+            <img src="static/images/example.png"
+                 class="example-image"
+                 alt=""/>
+          </div>
+        
+        <br/>
+        <!-- Re-rendering. -->
+        <h3 class="title is-4">Human Study: humans prefer human-written explanations over machine-written</h3>
+        <div class="content has-text-centered">
+          <img src="static/images/results_human.png"
+                 class="human-studies-image"
+                 alt=""/>
+        <div class="content has-text-justified"> 
+          Human study to evaluate human preference of machine-written reactions vs human-written. 
+          Users could choose between Human, Machine, Both-Good, or Both Bad. 
+          
+          Our preliminary results show that humans largely prefer human-written reactions over BLIP-2 (machine) generated reactions. 
+          Human explanations were chosen 1.5 times more often than machine explanations.
+
+        </div>
+        </div>
+        <!--/ Re-rendering. -->
+      <h3 class="title is-4">Metric Study: Current metrics fail to correlate with human preference</h3>
+      <!--/ Re-rendering. -->
+      <div class="content has-text-centered">
+        <div class="metric-container">
+        <img src="static/images/metric-results.png"
+                class="metric-image"
+                alt=""/>
+        <img src="static/images/metric_results2.png"
+        class="metric-image2"
+        alt=""/>
+      </div>
+      <div class="content has-text-justified"> 
+        On the left, we ran evaluations with BART and CLIP-Score on subsets where
+        humans prefer human-written reactions, BLIP-2 (machine) reac-
+        tions, or both. We want machine-better or both-good generations
+        scored higher than human-better. From the results, we can determine that commonly-used metrics like  BART and CLIP scores, cannot distinguish between good and bad reactions.
+        We chose subsets of reactions where humans rated them as good (machine-better or both-good) and where humans rated them as bad (human-better). 
+        Commonly used metrics do not score them differently, suggesting that they do not correlate to human preference. Hence, we need research on new metrics.
+      </div>
+      <div class="content has-text-justified"> 
+        On the right, we compare the metrics of an multimodal vs a text-only model on relevance of genera-
+        tion to the image. From the results, we can say that multimodal models are understandably more image relevant than language only models. However, 
+        visual relevance doesn’t correlate to human preference.
+      </div>
+    </div>
+      </div>
+    </div>
+    <!--/ Future Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Future Work</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            In the future, we look to improve our results by benchmarking more state-of-the-art language and multimodal language models like LLaVA, 
+            MiniGPT-4 on our benchmark. Further, we also look to incorporate adaptation methods like in-context learning in multimodal LLMs with 
+            example images, captions and explanations.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            There's also a lot of similar links that examine empathy and emotions in multimodals.
+          </p>
+          <p>
+            <span style="display: inline;"><a href="https://aclanthology.org/2021.findings-emnlp.380.pdf">NICE: Neural Image Commenting with Empathy</a></span>
+<span style="display: inline;">is a machine learning model designed to generate image captions that exhibit a higher level of emotional understanding and empathy. Unlike conventional image captioning models, NICE aims to provide comments that not only describe the visual content but also consider the emotional context and human-like response. It achieves this by incorporating empathy-aware components into the caption generation process, making it a promising development in improving AI-generated image descriptions.</span>
+
+
+          </p>
+          <p>
+            <span style="display: inline;"><a href="https://arxiv.org/pdf/2110.07574.pdf">Can machines learn morality? The Delphi Experiment</a></span>
+<span style="display: inline;">uses deep neural networks to reason about descriptive ethical judgments, such as determining whether an action is generally good or bad. While Delphi shows promise in its ability to generalize ethical reasoning, it also highlights the need for explicit moral instruction in AI, as it can exhibit biases and imperfections.</span> 
+          </p>
+          <p>
+            <span style="display: inline;"><a href="https://arxiv.org/pdf/2101.07396.pdf">ArtEmis: Affective Language for Visual Art
+            </a></span>
+<span style="display: inline;"> is a dataset that comprises 439,000 emotion attributions and explanations for 81,000 artworks from WikiArt. Unlike many existing computer vision datasets, ArtEmis centers on the emotional responses evoked by visual art, with annotators indicating their dominant emotions and providing verbal explanations. This dataset serves as the foundation for training captioning systems that excel in expressing and explaining emotional responses to visual stimuli, often surpassing other datasets in conveying the semantic and abstract content of the artworks. </span> 
+          </p>  
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+      @misc{deng2023socratis,
+        title={Socratis: Are large multimodal models emotionally aware?}, 
+        author={Katherine Deng and Arijit Ray and Reuben Tan and Saadia Gabriel and Bryan A. Plummer and Kate Saenko},
+        year={2023},
+        eprint={2308.16741},
+        archivePrefix={arXiv},
+        primaryClass={cs.AI}
+  }
+    </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://arxiv.org/abs/2308.16741">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://arijitray1993.github.io/" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
